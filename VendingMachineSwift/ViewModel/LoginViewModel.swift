@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class LoginViewModel: ObservableObject {
+    @Published var title: String = ""
+
+    func fetch() {
+        self.title = "Login View"
+    }
+    
+}
