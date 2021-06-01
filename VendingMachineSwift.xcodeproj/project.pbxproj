@@ -13,6 +13,10 @@
 		CA6A3C30266610150012C5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6A3C2F266610150012C5D7 /* Assets.xcassets */; };
 		CA6A3C33266610150012C5D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6A3C32266610150012C5D7 /* Preview Assets.xcassets */; };
 		CA6A3C36266610150012C5D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6A3C34266610150012C5D7 /* LaunchScreen.storyboard */; };
+		CA6A3C3F266614AB0012C5D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A3C3E266614AB0012C5D7 /* LoginView.swift */; };
+		CA6A3C44266615A30012C5D7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A3C43266615A30012C5D7 /* LoginViewModel.swift */; };
+		CA6A3C47266616B10012C5D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A3C46266616B10012C5D7 /* LoginViewController.swift */; };
+		CA6A3C4A266623D80012C5D7 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A3C49266623D80012C5D7 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		CA6A3C32266610150012C5D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CA6A3C35266610150012C5D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA6A3C37266610150012C5D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA6A3C3E266614AB0012C5D7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = VendingMachineSwift/View/LoginView.swift; sourceTree = SOURCE_ROOT; };
+		CA6A3C43266615A30012C5D7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CA6A3C46266616B10012C5D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CA6A3C49266623D80012C5D7 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,10 @@
 		CA6A3C28266610140012C5D7 /* VendingMachineSwift */ = {
 			isa = PBXGroup;
 			children = (
+				CA6A3C48266623B90012C5D7 /* Common */,
+				CA6A3C45266616940012C5D7 /* ViewController */,
+				CA6A3C402666154E0012C5D7 /* ViewModel */,
+				CA6A3C3D266614930012C5D7 /* View */,
 				CA6A3C29266610140012C5D7 /* AppDelegate.swift */,
 				CA6A3C2B266610140012C5D7 /* SceneDelegate.swift */,
 				CA6A3C2D266610140012C5D7 /* ContentView.swift */,
@@ -73,6 +85,38 @@
 				CA6A3C32266610150012C5D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CA6A3C3D266614930012C5D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA6A3C3E266614AB0012C5D7 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA6A3C402666154E0012C5D7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA6A3C43266615A30012C5D7 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CA6A3C45266616940012C5D7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CA6A3C46266616B10012C5D7 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CA6A3C48266623B90012C5D7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CA6A3C49266623D80012C5D7 /* Strings.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +189,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6A3C47266616B10012C5D7 /* LoginViewController.swift in Sources */,
 				CA6A3C2A266610140012C5D7 /* AppDelegate.swift in Sources */,
 				CA6A3C2C266610140012C5D7 /* SceneDelegate.swift in Sources */,
+				CA6A3C3F266614AB0012C5D7 /* LoginView.swift in Sources */,
+				CA6A3C44266615A30012C5D7 /* LoginViewModel.swift in Sources */,
 				CA6A3C2E266610140012C5D7 /* ContentView.swift in Sources */,
+				CA6A3C4A266623D80012C5D7 /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
