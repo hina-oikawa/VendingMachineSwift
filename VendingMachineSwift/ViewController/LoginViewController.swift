@@ -15,16 +15,19 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         
         // TODO: Home画面作成後に有効にする
-//        self.view.backgroundColor = .red
-//
-//        let vc = UIHostingController(
-//            rootView: LoginView(viewModel: self.viewModel)
-//        )
-//        addChild(vc)
-//        view.addSubview(vc.view)
-//        NSLayoutConstraint.activate([/* ... */])
-//        vc.didMove(toParent: self)
-//
-//        self.viewModel.fetch()
+        let vc = UIHostingController(
+            rootView: LoginView(viewModel: self.viewModel)
+        )
+        addChild(vc)
+        view.addSubview(vc.view)
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        vc.view.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        vc.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        vc.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        vc.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([/* ... */])
+        vc.didMove(toParent: self)
+
+        self.viewModel.fetch()
     }
 }
