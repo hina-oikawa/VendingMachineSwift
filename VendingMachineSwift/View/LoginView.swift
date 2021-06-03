@@ -34,7 +34,7 @@ struct LoginView: View {
                 .onChange(of: passText, perform: passTextFilter)
             
             Button(self.strings.buttonTitle, action: {
-                self.showingHomeView = showingHomeView(idText: self.idText, passText: self.passText)
+                showingHomeView(idText: self.idText, passText: self.passText)
             })
         }
     }
@@ -49,12 +49,13 @@ struct LoginView: View {
     }
     
     // TODO: ログイン画面を閉じる処理に修正する
-    func showingHomeView(idText: String, passText: String) -> Bool {
+    func showingHomeView(idText: String, passText: String) {
         if idText == "" || passText == "" {
-            showingHomeView = false
+            print("ログイン失敗")
         } else {
-            showingHomeView = true
+            self.viewModel.updateIsLogin()
+            self.viewModel.dismissLoginView(isDismiss: true)
         }
-        return showingHomeView
+        
     }
 }

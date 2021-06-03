@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 import SwiftUI
+import Combine
 
 class LoginViewController: UIViewController {
     let viewModel = LoginViewModel()
+    var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         
@@ -27,7 +29,16 @@ class LoginViewController: UIViewController {
         vc.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         NSLayoutConstraint.activate([/* ... */])
         vc.didMove(toParent: self)
-
+        self.isModalInPresentation = true
         self.viewModel.fetch()
+        
+        self.viewModel.$isDismiss
+            .compactMap { $0 }
+            .sink { [weak self] id in
+                self?.dismiss(
+                    animated: true,
+                    completion: nil)
+            }
+            .store(in: &cancellables)
     }
 }

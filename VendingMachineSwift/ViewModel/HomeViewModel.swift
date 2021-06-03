@@ -9,14 +9,14 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var title: String = ""
-    @Published var presentLogin: String?
+    @Published var presentFlg: Bool = false
 
     func fetch() {
         self.title = "Home View"
     }
     
-    func presentLogin(loginTitle: String) {
-        self.presentLogin = loginTitle
+    func presentLoginView(presentFlg: Bool) {
+        self.presentFlg = presentFlg
     }
     
 }

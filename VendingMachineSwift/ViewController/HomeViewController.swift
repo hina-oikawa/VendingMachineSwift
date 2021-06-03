@@ -12,13 +12,14 @@ import SwiftUI
 
 class HomeViewController: UIViewController {
     var cancellables = Set<AnyCancellable>()
-    let viewModel = HomeViewModel()
+    let homeViewModel = HomeViewModel()
+    let loginViewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let vc = UIHostingController(
-            rootView: HomeView(viewModel: self.viewModel)
+            rootView: HomeView(viewModel: self.homeViewModel)
         )
         addChild(vc)
         view.addSubview(vc.view)
@@ -30,18 +31,15 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([/* ... */])
         vc.didMove(toParent: self)
         
-        self.viewModel.fetch()
-        
-        self.viewModel.$presentLogin
-            .compactMap { $0 }
-            .sink { [weak self] id in
-                self?.present(
-                    LoginViewController(),
-                    animated: true,
-                    completion: nil
-                )
-            }
-            .store(in: &cancellables)
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if self.loginViewModel.isLogin == false {
+            self.present(
+                LoginViewController(),
+                animated: false,
+                completion: nil
+            )
+        }
     }
 }
