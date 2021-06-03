@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA505D4C266893F000BACF0D /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505D4B266893F000BACF0D /* HomeData.swift */; };
 		CA6A3C2A266610140012C5D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A3C29266610140012C5D7 /* AppDelegate.swift */; };
 		CA6A3C2C266610140012C5D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A3C2B266610140012C5D7 /* SceneDelegate.swift */; };
 		CA6A3C2E266610140012C5D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A3C2D266610140012C5D7 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA505D4B266893F000BACF0D /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		CA6A3C26266610140012C5D7 /* VendingMachineSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6A3C29266610140012C5D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA6A3C2B266610140012C5D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA505D4A266893CD00BACF0D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CA505D4B266893F000BACF0D /* HomeData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		CA6A3C1D266610140012C5D7 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		CA6A3C28266610140012C5D7 /* VendingMachineSwift */ = {
 			isa = PBXGroup;
 			children = (
+				CA505D4A266893CD00BACF0D /* Data */,
 				CA6A3C48266623B90012C5D7 /* Common */,
 				CA6A3C45266616940012C5D7 /* ViewController */,
 				CA6A3C402666154E0012C5D7 /* ViewModel */,
@@ -208,6 +219,7 @@
 				CA6A3C44266615A30012C5D7 /* LoginViewModel.swift in Sources */,
 				CA6A3C2E266610140012C5D7 /* ContentView.swift in Sources */,
 				CA6A3C4A266623D80012C5D7 /* Strings.swift in Sources */,
+				CA505D4C266893F000BACF0D /* HomeData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
