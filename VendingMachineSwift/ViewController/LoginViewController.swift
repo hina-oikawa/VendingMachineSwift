@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        // TODO: Home画面作成後に有効にする
         let vc = UIHostingController(
             rootView: LoginView(viewModel: self.viewModel)
         )
@@ -30,7 +29,6 @@ class LoginViewController: UIViewController {
         NSLayoutConstraint.activate([/* ... */])
         vc.didMove(toParent: self)
         self.isModalInPresentation = true
-        self.viewModel.fetch()
         
         self.viewModel.$isDismiss
             .compactMap { $0 }
