@@ -14,12 +14,13 @@ class HomeViewController: UIViewController {
     var cancellables = Set<AnyCancellable>()
     let homeViewModel = HomeViewModel()
     let loginViewModel = LoginViewModel()
+    let productViewModel = ProductViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let vc = UIHostingController(
-            rootView: HomeView(viewModel: self.homeViewModel)
+            rootView: HomeView(viewModel: self.homeViewModel, productViewModel: self.productViewModel)
         )
         addChild(vc)
         view.addSubview(vc.view)
@@ -30,6 +31,15 @@ class HomeViewController: UIViewController {
         vc.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         NSLayoutConstraint.activate([/* ... */])
         vc.didMove(toParent: self)
+        
+        self.productViewModel.$presentFlg
+            .compactMap { $0 }
+            .sink { [weak self] _ in
+                self?.show(
+                    ProductViewController(),
+                    sender: nil)
+            }
+            .store(in: &cancellables)
         
     }
     
