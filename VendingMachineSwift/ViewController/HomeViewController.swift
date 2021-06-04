@@ -1,23 +1,25 @@
 //
-//  LoginViewController.swift
+//  HomeViewController.swift
 //  VendingMachineSwift
 //
-//  Created by 及川ひな on 2021/06/01.
+//  Created by 及川ひな on 2021/06/02.
 //
 
-import Foundation
 import UIKit
-import SwiftUI
 import Combine
+import Foundation
+import SwiftUI
 
-class LoginViewController: UIViewController {
-    let viewModel = LoginViewModel()
+class HomeViewController: UIViewController {
     var cancellables = Set<AnyCancellable>()
-    
+    let homeViewModel = HomeViewModel()
+    let loginViewModel = LoginViewModel()
+
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+
         let vc = UIHostingController(
-            rootView: LoginView(viewModel: self.viewModel)
+            rootView: HomeView(viewModel: self.homeViewModel)
         )
         addChild(vc)
         view.addSubview(vc.view)
@@ -28,15 +30,16 @@ class LoginViewController: UIViewController {
         vc.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         NSLayoutConstraint.activate([/* ... */])
         vc.didMove(toParent: self)
-        self.isModalInPresentation = true
         
-        self.viewModel.$isDismiss
-            .compactMap { $0 }
-            .sink { [weak self] id in
-                self?.dismiss(
-                    animated: true,
-                    completion: nil)
-            }
-            .store(in: &cancellables)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if self.loginViewModel.isLogin == false {
+            self.present(
+                LoginViewController(),
+                animated: false,
+                completion: nil
+            )
+        }
     }
 }

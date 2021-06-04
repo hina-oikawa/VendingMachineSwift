@@ -9,9 +9,15 @@ import Foundation
 
 class LoginViewModel: ObservableObject {
     @Published var title: String = ""
-
-    func fetch() {
-        self.title = "Login View"
+    @Published var isDismiss: Bool = false
+    var isLogin: Bool = false
+    
+    func dismissLoginView(isDismiss: Bool){
+        self.isDismiss = isDismiss
+    }
+    
+    func updateIsLogin() {
+        self.isLogin = true
     }
     
 }
