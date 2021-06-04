@@ -6,24 +6,28 @@
 //
 
 import UIKit
+import Combine
+import SwiftUI
 
 class ProductViewController: UIViewController {
+    let viewModel = ProductViewModel()
+    var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let vc = UIHostingController(
+            rootView: ProductView(viewModel: self.viewModel)
+        )
+        addChild(vc)
+        view.addSubview(vc.view)
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        vc.view.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        vc.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        vc.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        vc.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([/* ... */])
+        vc.didMove(toParent: self)
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

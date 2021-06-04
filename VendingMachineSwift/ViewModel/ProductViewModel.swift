@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class ProductViewModel: ObservableObject {
+    @Published var title: String = ""
+    @Published var presentFlg: Bool = false
+    
+    func presentProductView(presentFlg: Bool) {
+        self.presentFlg = presentFlg
+    }
+    
+}
