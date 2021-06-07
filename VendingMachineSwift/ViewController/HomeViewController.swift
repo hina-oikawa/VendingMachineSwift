@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     let homeViewModel = HomeViewModel()
     let loginViewModel = LoginViewModel()
     let productViewModel = ProductViewModel()
+    var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class HomeViewController: UIViewController {
         )
         addChild(vc)
         view.addSubview(vc.view)
+        self.view.alpha = 0
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         vc.view.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
         vc.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
@@ -32,15 +34,33 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([/* ... */])
         vc.didMove(toParent: self)
         
+        timer = Timer.scheduledTimer(
+            withTimeInterval: 1.0,
+            repeats: true,
+            block: { (timer) in
+                self.animateView(self.view)
+            }
+        )
+        
         self.productViewModel.$presentFlg
             .compactMap { $0 }
             .sink { [weak self] _ in
-                self?.show(
-                    ProductViewController(),
-                    sender: nil)
+                guard let vc = self else { return }
+                if vc.productViewModel.presentFlg {
+                    vc.show(
+                        ProductViewController(),
+                        sender: nil)
+                    
+                }
             }
             .store(in: &cancellables)
         
+    }
+    
+    func animateView(_ viewAnimate: UIView) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
+            viewAnimate.alpha = 1
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Strings {
-    class Login {
+struct Strings {
+    struct Login {
         let buttonTitle: String = "ログイン"
         let navigationTitle: String = "Login View"
         let idTextFieldPlaceholder: String = "IDを入力"
