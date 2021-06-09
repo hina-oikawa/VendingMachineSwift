@@ -49,18 +49,12 @@ class HomeViewController: UIViewController {
                 if vc.productViewModel.presentFlg {
                     vc.show(
                         ProductViewController(),
-                        sender: nil)
+                        sender: nil
+                    )
                     
                 }
             }
             .store(in: &cancellables)
-        
-    }
-    
-    func animateView(_ viewAnimate: UIView) {
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
-            viewAnimate.alpha = 1
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +64,13 @@ class HomeViewController: UIViewController {
                 animated: false,
                 completion: nil
             )
+            self.loginViewModel.isLogin = true
+        }
+    }
+    
+    func animateView(_ viewAnimate: UIView) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
+            viewAnimate.alpha = 1
         }
     }
 }

@@ -53,7 +53,6 @@ struct LoginView: View {
         if idText == "" || passText == "" {
             print("ログイン失敗")
         } else {
-            self.viewModel.updateIsLogin()
             self.viewModel.dismissLoginView(isDismiss: true)
         }
         
