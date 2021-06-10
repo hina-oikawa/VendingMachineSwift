@@ -15,4 +15,15 @@ struct Strings {
         let passTextFieldPlaceholder: String = "Passを入力"
         let validCodes: String = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     }
+    
+    struct Product {
+        let tsumetai: String = "tsumetai"
+        let tokuho: String = "tokuho"
+        let energy: String = "energy"
+        let cola: String = "cola"
+        let coffee: String = "coffee"
+        let attakai: String = "attakai"
+        let nyuusankin: String = "nyuusankin"
+        let awamori: String = "awamori"
+    }
 }

@@ -17,7 +17,7 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         
         let vc = UIHostingController(
-            rootView: ProductView(viewModel: self.viewModel)
+            rootView: ProductView(viewModel: self.viewModel, companyName: "cola")
         )
         addChild(vc)
         view.addSubview(vc.view)
