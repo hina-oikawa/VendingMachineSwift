@@ -12,12 +12,13 @@ import SwiftUI
 class ProductViewController: UIViewController {
     let viewModel = ProductViewModel()
     var cancellables = Set<AnyCancellable>()
-
+    public var companyName: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let vc = UIHostingController(
-            rootView: ProductView(viewModel: self.viewModel, companyName: "cola")
+            rootView: ProductView(viewModel: self.viewModel, companyName: self.companyName)
         )
         addChild(vc)
         view.addSubview(vc.view)

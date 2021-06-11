@@ -16,6 +16,11 @@ struct ProductView: View {
     
     public var companyName: String
     
+    init(viewModel: ProductViewModel, companyName: String) {
+        self.viewModel = viewModel
+        self.companyName = companyName
+    }
+    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: gridItemLayout, spacing: 20) {

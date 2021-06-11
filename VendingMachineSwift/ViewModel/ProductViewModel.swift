@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ProductViewModel: ObservableObject {
-    @Published var title: String = ""
     @Published var presentFlg: Bool = false
+    var companyName: String = ""
     
-    func presentProductView(presentFlg: Bool) {
+    func presentProductView(presentFlg: Bool, companyName: String) {
+        self.companyName = companyName
         self.presentFlg = presentFlg
     }
     

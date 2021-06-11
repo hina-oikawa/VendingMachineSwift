@@ -17,14 +17,17 @@ struct HomeView: View {
     var body: some View {
         Text(self.viewModel.title)
         ScrollView {
-            LazyVGrid(columns: gridItemLayout, spacing: 20) {
-                ForEach((0...homeData.companys.count-1), id: \.self) { company in
-                    Image(homeData.companys[company % homeData.companys.count])
+            LazyVGrid(columns: self.gridItemLayout, spacing: 20) {
+                ForEach((0...self.homeData.companys.count-1), id: \.self) { company in
+                    Image(self.homeData.companys[company % self.homeData.companys.count])
                         .resizable()
                         .frame(width: 150.0, height: 150.0)
                         .cornerRadius(10)
                         .onTapGesture {
-                            self.productViewModel.presentProductView(presentFlg: true)
+                            self.productViewModel.presentProductView(
+                                presentFlg: true,
+                                companyName: self.homeData.companys[company]
+                            )
                         }
                         .clipShape(Rectangle())
                 }

@@ -47,8 +47,10 @@ class HomeViewController: UIViewController {
             .sink { [weak self] _ in
                 guard let vc = self else { return }
                 if vc.productViewModel.presentFlg {
+                    let productVC = ProductViewController()
+                    productVC.companyName = vc.productViewModel.companyName
                     vc.show(
-                        ProductViewController(),
+                        productVC,
                         sender: nil
                     )
                     
