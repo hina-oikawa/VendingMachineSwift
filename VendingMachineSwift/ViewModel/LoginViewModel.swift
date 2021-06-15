@@ -15,9 +15,4 @@ class LoginViewModel: ObservableObject {
     func dismissLoginView(isDismiss: Bool){
         self.isDismiss = isDismiss
     }
-    
-    func updateIsLogin() {
-        self.isLogin = true
-    }
-    
 }
