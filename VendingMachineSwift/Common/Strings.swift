@@ -26,4 +26,15 @@ struct Strings {
         let nyuusankin: String = "nyuusankin"
         let awamori: String = "awamori"
     }
+    
+    struct ProductDetail {
+        let productDescription: String = "夏にぴったりの商品です"
+        let unit: String = "円"
+        let price: String = "150"
+        let total: String = "合計"
+        let fishing: String = "お釣り"
+        let settlementButton: String = "決済"
+        let countTextFieldPlaceholder: String = "個数を入力"
+        let paymentTextFieldPlaceholder: String = "支払い金額を入力"
+    }
 }
