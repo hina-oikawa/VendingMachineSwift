@@ -9,15 +9,16 @@ import SwiftUI
 
 struct ProductView: View {
     @ObservedObject var viewModel: ProductViewModel
+    @ObservedObject var productDetailViewModel: ProductDetailViewModel
     let productData: ProductData = ProductData()
     let strings = Strings.Product()
     var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
-    @State private var isShowing = false
     
     public var companyName: String
     
-    init(viewModel: ProductViewModel, companyName: String) {
+    init(viewModel: ProductViewModel, detailViewModel: ProductDetailViewModel, companyName: String) {
         self.viewModel = viewModel
+        self.productDetailViewModel = detailViewModel
         self.companyName = companyName
     }
     
@@ -60,11 +61,11 @@ struct ProductView: View {
                 .cornerRadius(10)
                 .clipShape(Rectangle())
                 .onTapGesture {
-                    self.isShowing = true
+                    self.productDetailViewModel.presentProductDetailView(
+                        presentFlg: true,
+                        productName: products[product]
+                    )
                 }
-                .sheet(isPresented: self.$isShowing, content: {
-//                    ProductDetailView(productName: products[product])
-                })
         }
     }
 }

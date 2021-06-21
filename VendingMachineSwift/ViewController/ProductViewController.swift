@@ -11,6 +11,7 @@ import SwiftUI
 
 class ProductViewController: UIViewController {
     let viewModel = ProductViewModel()
+    let productDetailViewModel = ProductDetailViewModel()
     var cancellables = Set<AnyCancellable>()
     public var companyName: String = ""
     
@@ -18,7 +19,9 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         
         let vc = UIHostingController(
-            rootView: ProductView(viewModel: self.viewModel, companyName: self.companyName)
+            rootView: ProductView(viewModel: self.viewModel,
+                                  detailViewModel: self.productDetailViewModel,
+                                  companyName: self.companyName)
         )
         addChild(vc)
         view.addSubview(vc.view)
@@ -29,6 +32,22 @@ class ProductViewController: UIViewController {
         vc.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         NSLayoutConstraint.activate([/* ... */])
         vc.didMove(toParent: self)
+        
+        self.productDetailViewModel.$presentFlg
+            .compactMap { $0 }
+            .sink { [weak self] _ in
+                guard let vc = self else { return }
+                if vc.productDetailViewModel.presentFlg {
+                    let productDetailVC = ProductDetailViewController()
+                    productDetailVC.viewModel = vc.productDetailViewModel
+                    vc.present(
+                        productDetailVC,
+                        animated: true,
+                        completion: nil
+                    )
+                }
+            }
+            .store(in: &cancellables)
         
     }
 }
